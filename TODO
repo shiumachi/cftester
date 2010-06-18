@@ -1,0 +1,11 @@
+run()
+run_code1()
+run_code2()
+
+
+output
+Case# input output1 output2
+---------------------------
+10   [1,2,3,4] 0  1
+13   [1,5,3,4] 1  4
+
