@@ -1,5 +1,6 @@
 import os
 import tempfile
+import sys
 
 class CFTester():
     def __init__(self):
@@ -54,16 +55,21 @@ class CFTester():
         tf.close()
         tf2.close()
         return res
+
+def run_test(generator):
+    argv = sys.argv
+    argc = len(argv)
+    if argc != 3:
+        print "Usage:script.py <command1> <command2>"
+        exit()
+    cft = CFTester()
+    cft.set_command1(argv[1])
+    cft.set_command2(argv[2])
+    cft.set_generator(generator)
+    cft.run()
         
 if __name__=="__main__":
-    cft = CFTester()
-    cft.set_command1('python test1.py')
-    cft.set_command2('python test2.py')
-    def f():
-        yield "0 0 0"
-        yield "1 2 3"
-        yield "-1 -3 -5"
-        yield "-2 -3 -5"
-    cft.set_generator(f)
-    cft.run()
+        print "Error: you should write input data generator function"
+        print "and run 'CFTester.run_test(generator)'"
+    
 
