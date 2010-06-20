@@ -21,3 +21,34 @@ For Example:
 
 $ mytester.py 'python mycode.py' 'python othercode.py'
 
+If you run the command, you may get some output
+which two script return different answer against 
+specific inputs.
+
+EXAMPLE
+=======
+
+You can run sample script 'example.py' as follows:
+
+$ python example.py ./test1.py ./test2.py
+
+Both two scripts will return some float value
+(like distance of vector) against three int value, 
+but test2.py always return 0 if the first value 
+of input is -1.
+
+Here is the output of the command:
+
+Case#|input|output1|output2
+---------------------------
+1|-1 -1 -1|1.73205080757|0
+2|-1 -1 0|1.41421356237|0
+3|-1 0 -1|1.41421356237|0
+4|-1 0 0|1.0|0
+
+There are four column in the output.
+Case# is a case number.
+input is an input data.
+output1/2 is outputs of two script you specified,
+these outputs may be different value.
+

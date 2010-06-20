@@ -1,9 +1,11 @@
 import CFTester
 
 def gen_input():
-    for i in xrange(-2,2):
-        for j in xrange(-2,2):
-            for k in xrange(-2,2):
+    start = -1
+    end = 1
+    for i in xrange(start,end):
+        for j in xrange(start,end):
+            for k in xrange(start,end):
                 yield "%d %d %d" % (i,j,k)
 
-Cftester.run_test(gen_input)
+CFTester.run_test(gen_input)
