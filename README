@@ -2,3 +2,19 @@ cftester
 ========
 
 test and analyze tool for codeforces.
+
+
+usage
+=====
+Before running script, you should make a chlid class of CFTester
+and write generate_input() method which yield input data.
+Let MyCFTester the class described above and written in mycftester.py, 
+you have only to do as below:
+
+$ mycftester.py <command1> <command2>
+
+you can set <command1> and <command2> any command you can execute.
+for example:
+
+$ mycftester.py "python A.py" "ruby B.rb"
+

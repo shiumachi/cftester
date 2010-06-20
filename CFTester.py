@@ -17,18 +17,18 @@ class CFTester():
             case += 1
         return 0
 
-    def get_file1(self):
-        return self.file1
+    def get_command1(self):
+        return self.command1
 
-    def set_file1(self,name):
-        self.file1 = name
+    def set_command1(self,name):
+        self.command1 = name
         return 0
 
-    def get_file2(self):
-        return self.file2
+    def get_command2(self):
+        return self.command2
 
-    def set_file2(self,name):
-        self.file2 = name
+    def set_command2(self,name):
+        self.command2 = name
         return 0
 
     def get_generator(self):
@@ -39,17 +39,17 @@ class CFTester():
         return 0
 
     def run_test1(self,input):
-        return self.run_test(self.file1,input)
+        return self.run_test(self.command1,input)
 
     def run_test2(self,input):
-        return self.run_test(self.file2,input)
+        return self.run_test(self.command2,input)
 
-    def run_test(self,file,input):
+    def run_test(self,command,input):
         tf = tempfile.NamedTemporaryFile('r+w')
         tf2 = tempfile.NamedTemporaryFile('r+w')
         tf2.write(input + "\n")
         tf2.seek(0)
-        os.system('python %s < %s > %s' % (file,tf2.name,tf.name))
+        os.system('%s < %s > %s' % (command,tf2.name,tf.name))
         res = tf.read()[:-1]
         tf.close()
         tf2.close()
@@ -57,8 +57,8 @@ class CFTester():
         
 if __name__=="__main__":
     cft = CFTester()
-    cft.set_file1('test1.py')
-    cft.set_file2('test2.py')
+    cft.set_command1('python test1.py')
+    cft.set_command2('python test2.py')
     def f():
         yield "0 0 0"
         yield "1 2 3"
